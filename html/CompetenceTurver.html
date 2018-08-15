@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Competence Turver</title>
-<script src="https://d3js.org/d3.v5.min.js"></script>
 
 </head>
 <body>
 	Hello World
 	<svg width="960" height="500"></svg>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	
 <script>
 
 var svg = d3.select("svg"),
@@ -16,7 +17,7 @@ var svg = d3.select("svg"),
     width = svg.attr("width") - margin.left - margin.right,
     height = svg.attr("height") - margin.top - margin.bottom;
 
-var parseDate = d3.timeParse("%Y %b %d");
+var parseDate = d3.timeParse("%d %b %d");
 
 var x = d3.scaleTime().range([0, width]),
     y = d3.scaleLinear().range([height, 0]),
@@ -32,7 +33,7 @@ var area = d3.area()
 var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.tsv("data.tsv", type, function(error, data) {
+d3.tsv("data1.tsv", type, function(error, data) {
   if (error) throw error;
 
   var keys = data.columns.slice(1);
@@ -72,11 +73,10 @@ d3.tsv("data.tsv", type, function(error, data) {
 
 function type(d, i, columns) {
   d.date = parseDate(d.date);
-  for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = d[columns[i]] / 100;
+  for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = d[columns[i]] ;
   return d;
 }
 
 </script>	
-	
 </body>
 </html>
