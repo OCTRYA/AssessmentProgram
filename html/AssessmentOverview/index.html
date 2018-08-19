@@ -3,57 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Competence Turver</title>
-<script>
-function makePentagone(g,scaleSize){
-	d3.select(g).append("polygon")
-	.attr("points","150,75 258,137.5 258,262.5 150,325 42,262.6 42,137.5")
-	.attr("fill","rgb(255,255,255)")
-	.attr("stroke","black")
-	.attr("transform","scale(" + scaleSize + ")");
-}
-
-function makeCircle(g,scaleSize,x,y){
-	d3.select(g).append("circle")
-	.attr("r", scaleSize)
-	.attr("cx",x)
-	.attr("cy",y)
-	.attr("fill","rgb(255,255,255)")
-	.attr("stroke","black");
-}
-
-function makeTriangle(g,scaleSize){
-	d3.select(g).append("polygon")
-	.attr("points","05,30 15,10 25,30")
-	.attr("fill","rgb(255,255,255)")
-	.attr("stroke","black")
-	.attr("transform","scale(" + scaleSize + ")");
-}
-
-function rectangle(g,scaleSize){
-	
-}
-
-</script>
+<script src="assessmentOverview.js"></script>
 </head>
 <body>
 	<svg width="960" height="1000">
-  		<g id="test" transform="translate(0,50)">
-  			<text>LEGEND</text> 
-  			<polygon id="polygon1"></polygon>
-  		</g>
 		<g transform="translate(0,0)">
-   			<text x="20" font-size="20" fill="rgb(45, 111, 210)" y="9.5" dy="1em">Assessment Overview</text>
-   			<text> hello world</text>  		
+   			<text x="0" font-size="20" fill="rgb(45, 111, 210)" y="0" dy="1em">Assessment Overview</text>
   		</g>
 
+    		<g id="legend" transform="translate(0,50)">
+  			<text>LEGEND</text>  			  			
+  		</g>
 	</svg>
+	
 	<script src="https://d3js.org/d3.v4.min.js"></script>
-  	<script>
-  		makePentagone(test,0.2);
-		makeCircle(test,25,32,43);
-		makeTriangle(test,2.1);
-	</script>	
+
 <script>
+
+makeLegend();
 
 var svg = d3.select("svg"),
     margin = {top: 20, right: 20, bottom: 30, left: 50},
